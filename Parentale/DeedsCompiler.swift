@@ -1,0 +1,43 @@
+//
+//  DeedsCompiler.swift
+//  Parentale
+//
+//  Created by Justin Lim on 30/6/19.
+//  Copyright © 2019 Justin Lim. All rights reserved.
+//
+
+import Foundation
+
+class DeedsCompiler {
+    
+    var deedArray = [Deed]()
+    
+    init (deedArray : [Deed]) {
+        self.deedArray = deedArray
+    }
+    
+    convenience init () {
+        let defaultDeedArray = [Deed]()
+        self.init(deedArray: defaultDeedArray)
+    }
+    
+    func addDeed(newDeed: Deed) {
+        deedArray.append(newDeed)
+    }
+    
+    func size() -> Int {
+        return deedArray.count
+    }
+    
+    // Sort deed according to date
+    private func sortDeeds() {
+        deedArray.sort(by: {$0.date > $1.date})
+    }
+    
+    func getDeed(byIndex: Int) -> Deed {
+        sortDeeds()
+        return deedArray[byIndex]
+    }
+    
+    
+}
