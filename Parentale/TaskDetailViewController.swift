@@ -85,7 +85,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
                     currentDeed.setDesc(desc: descStr)
                     print("Update Executed")
                 } else {
-                    // Delete Current
+                    deedsCompiler.removeDeed(uuid: currentDeed.getId())
                 }
             } else {
                 if !descStr.isEmpty {

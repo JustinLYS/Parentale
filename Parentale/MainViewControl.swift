@@ -68,8 +68,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
         // Do any custom modifications you your cell, referencing the outlets you defined in the Custom cell file.
 //        print("HELLO WORLD: DATE:  \(deedsCompiler.getDeed(byIndex: index).getDate())")
-        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(byIndex: index).getDate())
-        cell.descLabel.text = deedsCompiler.getDeed(byIndex: index).desc
+        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
+        cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
         
 //        cell.contentView.layer.cornerRadius = 2.0
 //        cell.contentView.layer.borderWidth = 1.0

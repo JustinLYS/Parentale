@@ -22,6 +22,7 @@ class Deed {
     // id is the combination of date (Day) and question
 //    var id: String
     var date: Date
+    var id: String
     var desc: String
     var question: String
     var image: UIImage?
@@ -42,6 +43,7 @@ class Deed {
         self.desc = desc
         self.question = question
         self.image = image
+        self.id = UUID().uuidString
     }
     
     init(date: Date, desc: String, question: String) {
@@ -50,6 +52,7 @@ class Deed {
         self.desc = desc
         self.question = question
         image = nil
+        self.id = UUID().uuidString
     }
     
 //    func initID() -> Bool{
@@ -91,6 +94,10 @@ class Deed {
     
     func setImage(image : UIImage) {
         self.image = image
+    }
+    
+    func getId() -> String {
+        return id
     }
     
 //    func getId() -> String {

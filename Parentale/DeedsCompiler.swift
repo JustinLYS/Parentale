@@ -34,9 +34,14 @@ class DeedsCompiler {
         deedArray.sort(by: {$0.date > $1.date})
     }
     
-    func getDeed(byIndex: Int) -> Deed {
+    func getDeed(index: Int) -> Deed {
         sortDeeds()
-        return deedArray[byIndex]
+        return deedArray[index]
+    }
+    
+    // removes and replaces deedArray with one without similar uuid
+    func removeDeed(uuid: String) {
+        deedArray = deedArray.filter {$0.id != uuid}
     }
     
     
