@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E492C5D22CC429100557907 /* TextDeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */; };
 		5E6CF1A122CB09C500AF8AF2 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CF1A022CB09C500AF8AF2 /* MessageViewController.swift */; };
 		5E7530D922C85D3F00D729B3 /* DeedsCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */; };
 		5EADE24022C0908A005D0F42 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE23F22C0908A005D0F42 /* TaskDetailViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E6CF1A022CB09C500AF8AF2 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeedsCompiler.swift; sourceTree = "<group>"; };
 		5EADE23F22C0908A005D0F42 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				5EADE24722C1167E005D0F42 /* DeedTextTableViewCell.swift */,
 				5EADE24922C11CE8005D0F42 /* OneSecondUITextField.swift */,
 				5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */,
+				5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */,
 			);
 			path = Parentale;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				5EADE24A22C11CE8005D0F42 /* OneSecondUITextField.swift in Sources */,
 				5EE1D66C22AE1D8400AF1C54 /* AppDelegate.swift in Sources */,
 				5E6CF1A122CB09C500AF8AF2 /* MessageViewController.swift in Sources */,
+				5E492C5D22CC429100557907 /* TextDeedCollectionViewCell.swift in Sources */,
 				5EE1D67422AE1D8400AF1C54 /* Parentale.xcdatamodeld in Sources */,
 				5EADE24622C1061C005D0F42 /* Deed.swift in Sources */,
 				5EE1D68122AE468A00AF1C54 /* Constant.swift in Sources */,

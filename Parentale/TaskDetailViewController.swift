@@ -81,17 +81,23 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
     func save() {
         if let descStr = descTextField.text {
             if doesDeedExist {
-                currentDeed.setDesc(desc: descStr)
-                print("Update Executed")
+                if !descStr.isEmpty {
+                    currentDeed.setDesc(desc: descStr)
+                    print("Update Executed")
+                } else {
+                    // Delete Current
+                }
             } else {
-                currentDeed.setDate(date: currentDate)
-                currentDeed.setDesc(desc: descStr)
-                currentDeed.setQuestion(question: currentQuestion)
-                deedsCompiler.addDeed(newDeed: currentDeed)
-                self.doesDeedExist = true
-                
-                print("Save executed")
-                print(deedsCompiler)
+                if !descStr.isEmpty {
+                    currentDeed.setDate(date: currentDate)
+                    currentDeed.setDesc(desc: descStr)
+                    currentDeed.setQuestion(question: currentQuestion)
+                    deedsCompiler.addDeed(newDeed: currentDeed)
+                    self.doesDeedExist = true
+                    
+                    print("Save executed")
+                    print(deedsCompiler)
+                }
             }
         }
     }

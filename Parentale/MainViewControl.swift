@@ -11,40 +11,87 @@ import UIKit
 var question = Question()
 var deedsCompiler = DeedsCompiler()
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var formattedDate = DateFormatter()
 
-    @IBOutlet weak var deedTableView: UITableView!
+    
+    @IBOutlet weak var deedCollectionView: UICollectionView! {
+        didSet {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
   
+        
         view.backgroundColor = themeColor
         
-        deedTableView.delegate = self
-        deedTableView.dataSource = self
-        deedTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        deedCollectionView.delegate = self
+        deedCollectionView.dataSource = self
+//        deedCollectionView.register(UINib(nibName: "TextDeedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "textDeedCell")
+
+//        deedCollectionView.register(TextDeedCollectionViewCell.self, forCellWithReuseIdentifier: "textDeedCell")
         
+
+                
         formattedDate.dateFormat = "d MMM"
         
-        let testDeed = Deed(date: Date(), desc: "TESTING", question: "CAN I WORK?")
+        let testDeed = Deed(date: Date(), desc: "TESTING a very very long long question that might break code", question: "CAN I WORK?")
         deedsCompiler.addDeed(newDeed: testDeed)
         
     }
     
+    
     @IBAction func close(segue: UIStoryboardSegue) {
-        deedTableView.reloadData()
+        deedCollectionView.reloadData()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return deedsCompiler.size()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "textDeedCell", for: indexPath)
+            as! TextDeedCollectionViewCell
+
+
+        let index = indexPath.row
+
+//        cell.dateLabel.text = "HELLO"
+        
+        // Do any custom modifications you your cell, referencing the outlets you defined in the Custom cell file.
+//        print("HELLO WORLD: DATE:  \(deedsCompiler.getDeed(byIndex: index).getDate())")
+        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(byIndex: index).getDate())
+        cell.descLabel.text = deedsCompiler.getDeed(byIndex: index).desc
+        
+//        cell.contentView.layer.cornerRadius = 2.0
+//        cell.contentView.layer.borderWidth = 1.0
+//        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+//        cell.contentView.layer.masksToBounds = true
+        
+        cell.layer.cornerRadius = 40
+        
+//        cell.layer.shadowColor = UIColor.blue.cgColor
+//        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//        cell.layer.shadowRadius = 2.0
+//        cell.layer.shadowOpacity = 0.5
+//        cell.layer.masksToBounds = false
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "deedDetailsSegue", sender: self)
+    }
+    
     
     @IBAction func addClicked(_ sender: Any) {
         if question.questionIsEmpty() {
@@ -54,23 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "deedTextCell", for: indexPath) as! DeedTextTableViewCell
-        
-        let index = indexPath.row
-        
-        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(byIndex: index).date)
-        cell.descLabel.text = deedsCompiler.getDeed(byIndex: index).desc
-        
-        
-        
-        return cell
-    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "deedDetailsSegue", sender: self)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -78,13 +109,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         {
             if identifier == "deedDetailsSegue"
             {
-                if let indexPath = deedTableView.indexPathForSelectedRow {
-                    let selectedDeed = deedsCompiler.getDeed(byIndex: indexPath.row)
-                    let destinationVC = segue.destination as! TaskDetailViewController
-                    
-                    destinationVC.currentDeed = selectedDeed
-                    destinationVC.doesDeedExist = true
-                }
+//                if let indexPath = deedCollectionView.indexPathsForSelectedItems {
+//                    let selectedDeed = deedsCompiler.getDeed(byIndex: indexPath.row)
+//                    let destinationVC = segue.destination as! TaskDetailViewController
+//
+//                    destinationVC.currentDeed = selectedDeed
+//                    destinationVC.doesDeedExist = true
+//                }
             } else {
                 let destinationVC = segue.destination as! MessageViewController
                 
