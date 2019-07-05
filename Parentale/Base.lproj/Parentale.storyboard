@@ -227,7 +227,7 @@
                                         <rect key="frame" x="23" y="70" width="297" height="222"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93433958289999997" green="0.65908259150000004" blue="0.6352772713" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

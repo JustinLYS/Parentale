@@ -109,13 +109,15 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         {
             if identifier == "deedDetailsSegue"
             {
-//                if let indexPath = deedCollectionView.indexPathsForSelectedItems {
-//                    let selectedDeed = deedsCompiler.getDeed(byIndex: indexPath.row)
-//                    let destinationVC = segue.destination as! TaskDetailViewController
-//
-//                    destinationVC.currentDeed = selectedDeed
-//                    destinationVC.doesDeedExist = true
-//                }
+                
+                if let indexPath = deedCollectionView.indexPathsForSelectedItems {
+                    let index = indexPath[0].row
+                    let selectedDeed = deedsCompiler.getDeed(index: index)
+                    let destinationVC = segue.destination as! TaskDetailViewController
+
+                    destinationVC.currentDeed = selectedDeed
+                    destinationVC.doesDeedExist = true
+                }
             } else {
                 let destinationVC = segue.destination as! MessageViewController
                 
