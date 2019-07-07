@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskDetailViewController: UIViewController, UITextViewDelegate {
-
+    
     
     let formattedDate = DateFormatter()
     let formattedTime = DateFormatter()
@@ -17,6 +17,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     var currentQuestion: String = ""
     var doesDeedExist = false
     var currentDeed : Deed = Deed()
+    var isDescPlaceHolder = false
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -44,33 +45,25 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Placeholder"
-            textView.textColor = UIColor.lightGray
-        }
+            placeHolderSetup(textView: textView, isPlaceHolder: textView.text.isEmpty)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if doesDeedExist {
-            dateLabel.text = formattedDate.string(from: currentDeed.getDate())
-            titleLabel.text = currentDeed.getQuestion()
-            timeLabel.text = formattedTime.string(from: currentDeed.getDate())
-            descTextView.text = currentDeed.getDesc()
-            descTextView.textColor = UIColor.black
-            
-            
-        } else {
-            if let question = question.getQuestion() {
+        if let question = question.getQuestion() {
+            currentQuestion = question
+            if doesDeedExist {
+                dateLabel.text = formattedDate.string(from: currentDeed.getDate())
+                titleLabel.text = currentDeed.getQuestion()
+                timeLabel.text = formattedTime.string(from: currentDeed.getDate())
+                descTextView.text = currentDeed.getDesc()
+                placeHolderSetup(textView: descTextView, isPlaceHolder: false)
+            } else {
                 titleLabel.text = question
-                currentQuestion = question
-                descTextView.text = currentDeed.getQuestion()
-                descTextView.textColor = UIColor.lightGray
+                placeHolderSetup(textView: descTextView, isPlaceHolder: true)
+                dateLabel.text = formattedDate.string(from: currentDate)
+                timeLabel.text = formattedTime.string(from: currentDate)
             }
-            
-            dateLabel.text = formattedDate.string(from: currentDate)
-            timeLabel.text = formattedTime.string(from: currentDate)
         }
         
         
@@ -84,15 +77,12 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
+            placeHolderSetup(textView: textView, isPlaceHolder: textView.text.isEmpty)
     }
     
     //    func textFieldDidEndEditing(_ textField: UITextField) {
-//        save()
-//    }
+    //        save()
+    //    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
@@ -126,21 +116,22 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
-
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         view.endEditing(true)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func placeHolderSetup(textView: UITextView, isPlaceHolder: Bool) {
+        if isPlaceHolder {
+            textView.text = currentQuestion
+            textView.textColor = UIColor.lightGray
+            isDescPlaceHolder = true
+        } else {
+            if isDescPlaceHolder {
+                textView.text = nil
+                isDescPlaceHolder = false
+            }
+            textView.textColor = UIColor.black
+        }
     }
-    */
-
 }
