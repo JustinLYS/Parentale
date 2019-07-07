@@ -14,6 +14,7 @@ var deedsCompiler = DeedsCompiler()
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var formattedDate = DateFormatter()
+    var isDetailSegueAdd = false
 
     
     @IBOutlet weak var deedCollectionView: UICollectionView! {
@@ -94,6 +95,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     
     @IBAction func addClicked(_ sender: Any) {
+        isDetailSegueAdd = true
         if question.questionIsEmpty() {
             performSegue(withIdentifier: "messageSegue", sender: self)
         } else {
@@ -109,14 +111,17 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         {
             if identifier == "deedDetailsSegue"
             {
-                
-                if let indexPath = deedCollectionView.indexPathsForSelectedItems {
-                    let index = indexPath[0].row
-                    let selectedDeed = deedsCompiler.getDeed(index: index)
-                    let destinationVC = segue.destination as! TaskDetailViewController
-
-                    destinationVC.currentDeed = selectedDeed
-                    destinationVC.doesDeedExist = true
+                if isDetailSegueAdd {
+                    isDetailSegueAdd = false
+                } else {
+                    if let indexPath = deedCollectionView.indexPathsForSelectedItems {
+                        let index = indexPath[0].row
+                        let selectedDeed = deedsCompiler.getDeed(index: index)
+                        let destinationVC = segue.destination as! TaskDetailViewController
+                        
+                        destinationVC.currentDeed = selectedDeed
+                        destinationVC.doesDeedExist = true
+                    }
                 }
             } else {
                 let destinationVC = segue.destination as! MessageViewController

@@ -15,6 +15,7 @@ import UIKit
  2) Can Image have Desc
  3) When I update Deed should I change the date?
  4) CAN I EVEN UPDATE A DEED OR JUST VIEW IT?
+ 5) IF they add too much word, main screen shows blah...?
  
  */
 class Deed {

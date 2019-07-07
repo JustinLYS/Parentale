@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5E492C5D22CC429100557907 /* TextDeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */; };
-		5E5E4C9322CF1C4B00579F21 /* OneSecondUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E4C9222CF1C4B00579F21 /* OneSecondUITextView.swift */; };
 		5E6CF1A122CB09C500AF8AF2 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CF1A022CB09C500AF8AF2 /* MessageViewController.swift */; };
 		5E7530D922C85D3F00D729B3 /* DeedsCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */; };
 		5EADE24022C0908A005D0F42 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE23F22C0908A005D0F42 /* TaskDetailViewController.swift */; };
 		5EADE24422C0F90A005D0F42 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE24322C0F90A005D0F42 /* Question.swift */; };
 		5EADE24622C1061C005D0F42 /* Deed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE24522C1061C005D0F42 /* Deed.swift */; };
 		5EADE24822C1167E005D0F42 /* DeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE24722C1167E005D0F42 /* DeedTextTableViewCell.swift */; };
-		5EADE24A22C11CE8005D0F42 /* OneSecondUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EADE24922C11CE8005D0F42 /* OneSecondUITextField.swift */; };
 		5EC27B2922AFB47600FBA0B9 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC27B2822AFB47600FBA0B9 /* Icon.xcassets */; };
 		5EE1D66C22AE1D8400AF1C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1D66B22AE1D8400AF1C54 /* AppDelegate.swift */; };
 		5EE1D66E22AE1D8400AF1C54 /* MainViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1D66D22AE1D8400AF1C54 /* MainViewControl.swift */; };
@@ -28,14 +26,12 @@
 
 /* Begin PBXFileReference section */
 		5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDeedCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E5E4C9222CF1C4B00579F21 /* OneSecondUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSecondUITextView.swift; sourceTree = "<group>"; };
 		5E6CF1A022CB09C500AF8AF2 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeedsCompiler.swift; sourceTree = "<group>"; };
 		5EADE23F22C0908A005D0F42 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		5EADE24322C0F90A005D0F42 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5EADE24522C1061C005D0F42 /* Deed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deed.swift; sourceTree = "<group>"; };
 		5EADE24722C1167E005D0F42 /* DeedTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeedTextTableViewCell.swift; sourceTree = "<group>"; };
-		5EADE24922C11CE8005D0F42 /* OneSecondUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSecondUITextField.swift; sourceTree = "<group>"; };
 		5EC27B2822AFB47600FBA0B9 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icon.xcassets; path = "../../../../proj images/Parentale App/icons/Icon.xcassets"; sourceTree = "<group>"; };
 		5EE1D66822AE1D8400AF1C54 /* Parentale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parentale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1D66B22AE1D8400AF1C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,10 +88,8 @@
 				5EADE24322C0F90A005D0F42 /* Question.swift */,
 				5EADE24522C1061C005D0F42 /* Deed.swift */,
 				5EADE24722C1167E005D0F42 /* DeedTextTableViewCell.swift */,
-				5EADE24922C11CE8005D0F42 /* OneSecondUITextField.swift */,
 				5E7530D822C85D3F00D729B3 /* DeedsCompiler.swift */,
 				5E492C5C22CC429100557907 /* TextDeedCollectionViewCell.swift */,
-				5E5E4C9222CF1C4B00579F21 /* OneSecondUITextView.swift */,
 			);
 			path = Parentale;
 			sourceTree = "<group>";
@@ -177,11 +171,9 @@
 				5EADE24022C0908A005D0F42 /* TaskDetailViewController.swift in Sources */,
 				5EADE24422C0F90A005D0F42 /* Question.swift in Sources */,
 				5EE1D66E22AE1D8400AF1C54 /* MainViewControl.swift in Sources */,
-				5EADE24A22C11CE8005D0F42 /* OneSecondUITextField.swift in Sources */,
 				5EE1D66C22AE1D8400AF1C54 /* AppDelegate.swift in Sources */,
 				5E6CF1A122CB09C500AF8AF2 /* MessageViewController.swift in Sources */,
 				5E492C5D22CC429100557907 /* TextDeedCollectionViewCell.swift in Sources */,
-				5E5E4C9322CF1C4B00579F21 /* OneSecondUITextView.swift in Sources */,
 				5EE1D67422AE1D8400AF1C54 /* Parentale.xcdatamodeld in Sources */,
 				5EADE24622C1061C005D0F42 /* Deed.swift in Sources */,
 				5EE1D68122AE468A00AF1C54 /* Constant.swift in Sources */,
