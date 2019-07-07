@@ -14,7 +14,6 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     let formattedDate = DateFormatter()
     let formattedTime = DateFormatter()
     let currentDate = Date()
-    var currentQuestion: String = ""
     var doesDeedExist = false
     var currentDeed : Deed = Deed()
     var isDescPlaceHolder = false
@@ -51,7 +50,6 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let question = question.getQuestion() {
-            currentQuestion = question
             if doesDeedExist {
                 dateLabel.text = formattedDate.string(from: currentDeed.getDate())
                 titleLabel.text = currentDeed.getQuestion()
@@ -80,10 +78,6 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
             placeHolderSetup(textView: textView, isPlaceHolder: textView.text.isEmpty)
     }
     
-    //    func textFieldDidEndEditing(_ textField: UITextField) {
-    //        save()
-    //    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
@@ -95,10 +89,12 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
      */
     func save() {
         if let descStr = descTextView.text {
+            guard !isDescPlaceHolder && descStr.isEmpty else {
+                return
+            }
             if doesDeedExist {
                 if !descStr.isEmpty {
                     currentDeed.setDesc(desc: descStr)
-                    print("Update Executed")
                 } else {
                     deedsCompiler.removeDeed(uuid: currentDeed.getId())
                 }
@@ -106,12 +102,9 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
                 if !descStr.isEmpty {
                     currentDeed.setDate(date: currentDate)
                     currentDeed.setDesc(desc: descStr)
-                    currentDeed.setQuestion(question: currentQuestion)
+                    currentDeed.setQuestion(question: currentDeed.getQuestion())
                     deedsCompiler.addDeed(newDeed: currentDeed)
                     self.doesDeedExist = true
-                    
-                    print("Save executed")
-                    print(deedsCompiler)
                 }
             }
         }
@@ -123,7 +116,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     
     func placeHolderSetup(textView: UITextView, isPlaceHolder: Bool) {
         if isPlaceHolder {
-            textView.text = currentQuestion
+            textView.text = currentDeed.getQuestion()
             textView.textColor = UIColor.lightGray
             isDescPlaceHolder = true
         } else {
