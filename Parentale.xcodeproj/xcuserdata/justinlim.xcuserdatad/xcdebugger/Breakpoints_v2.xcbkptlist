@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/TaskDetailViewController.swift"
-            timestampString = "585483569.653908"
+            timestampString = "585485593.544453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -24,7 +24,7 @@
             ignoreCount = "4"
             continueAfterRunningActions = "No"
             filePath = "Parentale/TaskDetailViewController.swift"
-            timestampString = "585483569.653963"
+            timestampString = "585485593.544562"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -40,13 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/Question.swift"
-            timestampString = "584606787.600052"
+            timestampString = "585485593.544613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "actDayResetFilter(currentDate:)"
-            landmarkType = "7">
+            startingLineNumber = "44"
+            endingLineNumber = "44">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,11 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/MainViewControl.swift"
-            timestampString = "585483569.6540281"
+            timestampString = "585485593.545011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127">
+            startingLineNumber = "255"
+            endingLineNumber = "255">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -70,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/MainViewControl.swift"
-            timestampString = "585483569.654074"
+            timestampString = "585485593.545393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127">
+            startingLineNumber = "255"
+            endingLineNumber = "255">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/MainViewControl.swift"
-            timestampString = "585483569.654115"
+            timestampString = "585485593.545669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127">
+            startingLineNumber = "255"
+            endingLineNumber = "255">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,11 +96,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/MainViewControl.swift"
-            timestampString = "585483569.654157"
+            timestampString = "585485593.545907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127">
+            startingLineNumber = "255"
+            endingLineNumber = "255">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,7 +110,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/TaskDetailViewController.swift"
-            timestampString = "585483569.6541981"
+            timestampString = "585485593.54614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
