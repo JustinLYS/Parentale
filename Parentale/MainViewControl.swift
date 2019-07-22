@@ -71,20 +71,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 //        print("HELLO WORLD: DATE:  \(deedsCompiler.getDeed(byIndex: index).getDate())")
         cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
         cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
-        
-//        cell.contentView.layer.cornerRadius = 2.0
-//        cell.contentView.layer.borderWidth = 1.0
-//        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-//        cell.contentView.layer.masksToBounds = true
-        
-        cell.layer.cornerRadius = 40
-        
-//        cell.layer.shadowColor = UIColor.blue.cgColor
-//        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        cell.layer.shadowRadius = 2.0
-//        cell.layer.shadowOpacity = 0.5
-//        cell.layer.masksToBounds = false
-//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
 
         return cell
     }
