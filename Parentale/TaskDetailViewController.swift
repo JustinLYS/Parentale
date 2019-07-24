@@ -17,6 +17,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     var doesDeedExist = false
     var currentDeed : Deed = Deed()
     var isDescPlaceHolder = false
+    var currentQuestion = ""
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,9 +33,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
         backView.clipsToBounds = true
         backView.layer.cornerRadius = 35
         backView.layer.backgroundColor = UIColor.white.cgColor
-        
-        saveButton.clipsToBounds = true
-        saveButton.layer.cornerRadius = 35
+    
         backView.layer.backgroundColor = UIColor.white.cgColor
         
         formattedDate.dateFormat = "EEEE, dd"
@@ -57,21 +56,20 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
                 descTextView.text = currentDeed.getDesc()
                 placeHolderSetup(textView: descTextView, isPlaceHolder: false)
             } else {
+                currentQuestion = question
                 titleLabel.text = question
-                placeHolderSetup(textView: descTextView, isPlaceHolder: true)
                 dateLabel.text = formattedDate.string(from: currentDate)
                 timeLabel.text = formattedTime.string(from: currentDate)
+                placeHolderSetup(textView: descTextView, isPlaceHolder: true)
             }
         }
-        
-        
     }
     @IBAction func saveClicked(_ sender: Any) {
         save()
     }
     
     @IBAction func backClicked(_ sender: Any) {
-        save()
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -87,9 +85,9 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     /*
      This method saves into deedArray Everytime, may change to optimise in the future by saving only when appCrashes
      */
-    func save() {
+    func save()  {
         if let descStr = descTextView.text {
-            guard !isDescPlaceHolder && descStr.isEmpty else {
+            guard !isDescPlaceHolder || descStr.isEmpty else {
                 return
             }
             if doesDeedExist {
@@ -116,7 +114,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     
     func placeHolderSetup(textView: UITextView, isPlaceHolder: Bool) {
         if isPlaceHolder {
-            textView.text = currentDeed.getQuestion()
+            textView.text = currentQuestion
             textView.textColor = UIColor.lightGray
             isDescPlaceHolder = true
         } else {
