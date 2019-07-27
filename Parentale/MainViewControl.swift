@@ -11,7 +11,7 @@ import UIKit
 var question = Question()
 var deedsCompiler = DeedsCompiler()
 
-class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     var formattedDate = DateFormatter()
     var isDetailSegueAdd = false
@@ -31,24 +31,15 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     var previousScrollOffset: CGFloat = 0;
     
-    
     @IBOutlet weak var deedCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-  
         
         view.backgroundColor = themeColor
         
         deedCollectionView.delegate = self
         deedCollectionView.dataSource = self
-//        deedCollectionView.register(UINib(nibName: "TextDeedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "textDeedCell")
-
-//        deedCollectionView.register(TextDeedCollectionViewCell.self, forCellWithReuseIdentifier: "textDeedCell")
-        
-
-                
         formattedDate.dateFormat = "d MMM"
         
         let testDeed1 = Deed(date: Date(), desc: "TESTING a very very long long question that might break code", question: "CAN I WORK?")
@@ -75,59 +66,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         updateHeader()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
-        
-        let absoluteTop: CGFloat = 0;
-        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height;
-        
-        let isScrollingDown = scrollDiff > 0 && scrollView.contentOffset.y > absoluteTop
-        let isScrollingUp = scrollDiff < 0 && scrollView.contentOffset.y < absoluteBottom
-        
-        if canAnimateHeader(scrollView) {
-            
-            // Calculate new header height
-            var newHeight = self.headerHeightConstraint.constant
-            if isScrollingDown {
-                newHeight = max(self.minHeaderHeight, self.headerHeightConstraint.constant - abs(scrollDiff))
-            } else if isScrollingUp {
-                if (deedCollectionView.contentOffset.y < 0) {
-                    newHeight = min(self.maxHeaderHeight, self.headerHeightConstraint.constant + abs(scrollDiff))
-                }
-                
-            }
-            
-            // Header needs to animate
-            if newHeight != self.headerHeightConstraint.constant {
-                self.headerHeightConstraint.constant = newHeight
-                self.updateHeader()
-                self.setScrollPosition(self.previousScrollOffset)
-            }
-            
-            self.previousScrollOffset = scrollView.contentOffset.y
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.scrollViewDidStopScrolling()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.scrollViewDidStopScrolling()
-        }
-    }
-    
-    func scrollViewDidStopScrolling() {
-        let range = self.maxHeaderHeight - self.minHeaderHeight
-        let midPoint = self.minHeaderHeight + (range / 2)
-        
-        if self.headerHeightConstraint.constant > midPoint {
-            self.expandHeader()
-        } else {
-            self.collapseHeader()
-        }
-    }
     
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
         // Calculate the size of the scrollView when header is collapsed
@@ -165,7 +103,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         let percentage = openAmount / range
         
         self.titleTopConstraint.constant = -openAmount + 10
-        // Makes it dissapear
         self.expTitle.alpha = percentage
         self.expSearch.alpha = percentage
         self.expImage.alpha = percentage
@@ -173,40 +110,9 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         self.expAddBtn.alpha = percentage
     }
     
-    
     @IBAction func close(segue: UIStoryboardSegue) {
         deedCollectionView.reloadData()
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deedsCompiler.size()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "textDeedCell", for: indexPath)
-            as! TextDeedCollectionViewCell
-
-
-        let index = indexPath.row
-
-//        cell.dateLabel.text = "HELLO"
-        
-        // Do any custom modifications you your cell, referencing the outlets you defined in the Custom cell file.
-//        print("HELLO WORLD: DATE:  \(deedsCompiler.getDeed(byIndex: index).getDate())")
-        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
-        cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "deedDetailsSegue", sender: self)
-    }
-    
     
     @IBAction func addClicked(_ sender: Any) {
         isDetailSegueAdd = true
@@ -216,8 +122,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             performSegue(withIdentifier: "deedDetailsSegue", sender: self)
         }
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -239,16 +143,92 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
                 }
             } else {
                 let destinationVC = segue.destination as! MessageViewController
-                
                 destinationVC.titleStr = "YAY THERE IS NO MORE QUESTIONS TODAY"
             }
         }
-        
-        
     }
-    
-    
-    
-
 }
 
+extension ViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return deedsCompiler.size()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "textDeedCell", for: indexPath)
+            as! TextDeedCollectionViewCell
+        
+        let index = indexPath.row
+        
+        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
+        cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
+        
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "deedDetailsSegue", sender: self)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollDiff = scrollView.contentOffset.y - self.previousScrollOffset
+        
+        let absoluteTop: CGFloat = 0;
+        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height;
+        
+        let isScrollingDown = scrollDiff > 0 && scrollView.contentOffset.y > absoluteTop
+        let isScrollingUp = scrollDiff < 0 && scrollView.contentOffset.y < absoluteBottom
+        
+        if canAnimateHeader(scrollView) {
+            
+            // Calculate new header height
+            var newHeight = self.headerHeightConstraint.constant
+            if isScrollingDown {
+                newHeight = max(self.minHeaderHeight, self.headerHeightConstraint.constant - abs(scrollDiff))
+            } else if isScrollingUp {
+                if (deedCollectionView.contentOffset.y < 0) {
+                    newHeight = min(self.maxHeaderHeight, self.headerHeightConstraint.constant + abs(scrollDiff))
+                }
+            }
+            
+            // Header needs to animate
+            if newHeight != self.headerHeightConstraint.constant {
+                self.headerHeightConstraint.constant = newHeight
+                self.updateHeader()
+                self.setScrollPosition(self.previousScrollOffset)
+            }
+            
+            self.previousScrollOffset = scrollView.contentOffset.y
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollViewDidStopScrolling()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.scrollViewDidStopScrolling()
+        }
+    }
+    
+    func scrollViewDidStopScrolling() {
+        let range = self.maxHeaderHeight - self.minHeaderHeight
+        let midPoint = self.minHeaderHeight + (range / 2)
+        
+        if self.headerHeightConstraint.constant > midPoint {
+            self.expandHeader()
+        } else {
+            self.collapseHeader()
+        }
+    }
+    
+}
