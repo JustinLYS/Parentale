@@ -19,6 +19,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     var isDescPlaceHolder = false
     var currentQuestion = ""
     
+    @IBOutlet weak var imageBackView: FrostedUIView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,7 +35,8 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
         backView.layer.cornerRadius = 35
         backView.layer.backgroundColor = UIColor.white.cgColor
     
-        backView.layer.backgroundColor = UIColor.white.cgColor
+        imageBackView.layer.cornerRadius = 35
+        imageBackView.clipsToBounds = true
         
         formattedDate.dateFormat = "EEEE, dd"
         formattedTime.dateFormat = "h mm a"
@@ -85,7 +87,7 @@ class TaskDetailViewController: UIViewController, UITextViewDelegate {
     /*
      This method saves into deedArray Everytime, may change to optimise in the future by saving only when appCrashes
      */
-    func save()  {
+    func save() {
         if let descStr = descTextView.text {
             guard !isDescPlaceHolder || descStr.isEmpty else {
                 return
