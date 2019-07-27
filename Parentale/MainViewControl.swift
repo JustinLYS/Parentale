@@ -142,6 +142,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout {
                     }
                 }
             } else {
+                isDetailSegueAdd = false
                 let destinationVC = segue.destination as! MessageViewController
                 destinationVC.titleStr = "YAY THERE IS NO MORE QUESTIONS TODAY"
             }

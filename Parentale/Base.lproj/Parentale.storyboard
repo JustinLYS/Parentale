@@ -403,13 +403,15 @@
                                 <rect key="frame" x="22" y="49" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <action selector="backClicked:" destination="40q-9M-een" eventType="touchUpInside" id="zCt-Lq-JFu"/>
-                                    <segue destination="vDu-zY-aD8" kind="unwind" unwindAction="closeWithSegue:" id="BOU-Me-M1U"/>
+                                    <action selector="backClicked:" destination="40q-9M-een" eventType="touchUpInside" id="jkW-Vx-3Uj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNB-cr-MfT">
                                 <rect key="frame" x="319" y="49" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveClicked:" destination="40q-9M-een" eventType="touchUpInside" id="soL-In-XdN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -437,6 +439,7 @@
                         <outlet property="saveButton" destination="SNB-cr-MfT" id="qFx-Rd-T9c"/>
                         <outlet property="timeLabel" destination="zmp-Rp-cV5" id="bcn-za-4nd"/>
                         <outlet property="titleLabel" destination="cCR-VU-bki" id="zkZ-IS-ljH"/>
+                        <segue destination="vDu-zY-aD8" kind="unwind" identifier="unwindToMain" unwindAction="closeWithSegue:" id="Bym-kt-Em9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zv-bX-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
