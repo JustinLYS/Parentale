@@ -163,6 +163,50 @@
                                             <outlet property="descLabel" destination="T2H-H1-tTY" id="CaQ-2g-JRe"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageDeedCell" id="Lbb-78-aeu" customClass="ImageDeedCollectionViewCell" customModule="Parentale" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="120" width="341" height="170"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="170"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tax-D8-OLL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="170"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="30 May" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-Lq-RAD">
+                                                            <rect key="frame" x="37" y="56" width="266" height="33"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <color key="textColor" red="0.59872752429999998" green="0.56121164560000003" blue="0.60252499579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-v3-DAX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="341" height="167"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Jmn-v3-DAX" secondAttribute="bottom" id="4Ce-E5-pre"/>
+                                                        <constraint firstItem="Jmn-v3-DAX" firstAttribute="top" secondItem="tax-D8-OLL" secondAttribute="top" id="UGM-ai-Gul"/>
+                                                        <constraint firstItem="Jmn-v3-DAX" firstAttribute="leading" secondItem="tax-D8-OLL" secondAttribute="leading" id="ceP-zV-W5y"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OzY-Lq-RAD" secondAttribute="bottom" constant="21" id="oVe-lP-3c4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Jmn-v3-DAX" secondAttribute="trailing" id="uIs-NE-sVv"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="tax-D8-OLL" secondAttribute="bottom" id="6fD-uM-sX8"/>
+                                            <constraint firstItem="tax-D8-OLL" firstAttribute="leading" secondItem="Lbb-78-aeu" secondAttribute="leading" id="G99-9k-goh"/>
+                                            <constraint firstItem="tax-D8-OLL" firstAttribute="top" secondItem="Lbb-78-aeu" secondAttribute="top" id="kHG-Xz-X1P"/>
+                                            <constraint firstAttribute="trailing" secondItem="tax-D8-OLL" secondAttribute="trailing" id="o7a-Qu-9lp"/>
+                                        </constraints>
+                                        <size key="customSize" width="341" height="170"/>
+                                        <connections>
+                                            <outlet property="backImage" destination="Jmn-v3-DAX" id="ten-d1-BVa"/>
+                                            <outlet property="dateLabel" destination="OzY-Lq-RAD" id="cP7-Rq-heX"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tWA-83-Res"/>
