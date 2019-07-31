@@ -13,13 +13,8 @@ class DeedTextTableViewCell: UITableViewCell {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
-    
 }
-

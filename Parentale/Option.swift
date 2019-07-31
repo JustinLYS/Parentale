@@ -24,7 +24,7 @@ class Option {
     func switchCompleted() {
         completed = !completed
     }
-    func changeName(name:String) {
+    func changeName(name: String) {
         self.name = name
     }
 }

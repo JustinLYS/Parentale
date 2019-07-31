@@ -10,12 +10,10 @@ import Foundation
 
 class Question {
     var questionArray: [String]
-    
     init() {
         // So far questions asked should be unique & constant
-        questionArray = ["What did I learn about God today?","What was one thing I have thanked God for?"]
+        questionArray = ["What did I learn about God today?", "What was one thing I have thanked God for?"]
     }
-    
     func getQuestion() -> String? {
         if !questionArray.isEmpty {
             let questionNumber = Int.random(in: 0 ..< questionArray.count)
@@ -27,16 +25,13 @@ class Question {
             return nil
         }
     }
-    
     func getArray() {
         print(questionArray)
     }
-    
     // Allows placing back previous & new questions
     func addQuestion(question: String) {
         questionArray.append(question)
     }
-    
     func questionIsEmpty() -> Bool {
         return questionArray.isEmpty
     }

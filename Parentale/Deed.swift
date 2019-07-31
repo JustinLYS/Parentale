@@ -19,17 +19,14 @@ import UIKit
  
  */
 class Deed {
-    
     // id is the combination of date (Day) and question
 //    var id: String
     var date: Date
-    var id: String
+    var identifier: String
     var desc: String
     var question: String
     var image: UIImage?
     let formattedDate = DateFormatter()
-    
-    
     convenience init() {
         let currentDate = Date()
         let defaultDate = currentDate
@@ -37,25 +34,22 @@ class Deed {
         let defaultQuestion = ""
         self.init(date: defaultDate, desc: defaultDesc, question: defaultQuestion)
     }
-    
     init(date: Date, desc: String, question: String, image: UIImage) {
         let currentDate = Date()
         self.date = currentDate
         self.desc = desc
         self.question = question
         self.image = image
-        self.id = UUID().uuidString
+        self.identifier = UUID().uuidString
     }
-    
     init(date: Date, desc: String, question: String) {
         let currentDate = Date()
         self.date = currentDate
         self.desc = desc
         self.question = question
         image = nil
-        self.id = UUID().uuidString
+        self.identifier = UUID().uuidString
     }
-    
 //    func initID() -> Bool{
 //        if let _ = self.date, let _ = self.question {
 //            self.id = createId(date: date, question: question)
@@ -65,81 +59,40 @@ class Deed {
 //        }
 //    }
     func hasImage() -> Bool {
-        if let _ = image {
+        if image != nil {
             return true
         } else {
             return false
         }
     }
-    
     func getDesc() -> String {
         return desc
     }
-    
     func getQuestion() -> String {
         return question
     }
-    
     func getImage() -> UIImage? {
         return image
     }
-    
     func getDate() -> Date {
         return date
     }
-    
-    func setDesc(desc : String) {
+    func setDesc(desc: String) {
         self.desc = desc
     }
-    
-    func setQuestion(question : String) {
+    func setQuestion(question: String) {
         self.question = question
     }
-    
-    func setDate(date : Date) {
+    func setDate(date: Date) {
         self.date = date
     }
-    
-    func setImage(image : UIImage) {
+    func setImage(image: UIImage) {
         self.image = image
     }
-    
     func getId() -> String {
-        return id
+        return identifier
     }
-    
-//    func getId() -> String {
-//        if let verId = self.id {
-//            return verId
-//        }
-//
-//    }
-    
     private func isBaseComplete() -> Bool {
         return true
-//        if isValidDeedText() || isValidDeedImage() {
-//            return true
-//        } else {
-//            return false
-//        }
     }
-    
-//    func isValidDeedImage() -> Bool {
-//        if let _ = id, let _ = image, let _ = date, let _ = desc, let _ = question {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-    
-//    func isValidDeedText() -> Bool {
-//        if let _ = id, let _ = image, let _ = date, let _ = desc, let _ = question {
-//            return false
-//        } else if let _ = date, let _ = desc, let _ = question {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-
 }
