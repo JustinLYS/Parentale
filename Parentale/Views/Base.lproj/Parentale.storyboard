@@ -164,31 +164,65 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageDeedCell" id="Lbb-78-aeu" customClass="ImageDeedCollectionViewCell" customModule="Parentale" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="120" width="341" height="170"/>
+                                        <rect key="frame" x="17" y="120" width="341" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tax-D8-OLL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="170"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="190"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="30 May" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-Lq-RAD">
-                                                            <rect key="frame" x="37" y="56" width="266" height="33"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                            <color key="textColor" red="0.59872752429999998" green="0.56121164560000003" blue="0.60252499579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-v3-DAX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="341" height="167"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-v3-DAX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="341" height="190"/>
                                                         </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hp-3k-wqz" customClass="FrostedUIView" customModule="Parentale" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="130" width="341" height="60"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mum Helped" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxk-5p-NRH">
+                                                                    <rect key="frame" x="37" y="19.5" width="267" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <color key="textColor" red="0.59999999999999998" green="0.5607843137254902" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="yxk-5p-NRH" firstAttribute="leading" secondItem="2Hp-3k-wqz" secondAttribute="leading" constant="37" id="429-6L-hps"/>
+                                                                <constraint firstAttribute="trailing" secondItem="yxk-5p-NRH" secondAttribute="trailing" constant="37" id="JtI-cC-Clx"/>
+                                                                <constraint firstAttribute="height" constant="60" id="R7D-XB-qJC"/>
+                                                                <constraint firstItem="yxk-5p-NRH" firstAttribute="centerY" secondItem="2Hp-3k-wqz" secondAttribute="centerY" id="rnW-2h-2YP"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1p-6G-qi6" customClass="FrostedUIView" customModule="Parentale" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="20" width="120" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 May" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-Lq-RAD">
+                                                                    <rect key="frame" x="19" y="10" width="82.5" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                    <color key="textColor" red="0.59999999999999998" green="0.5607843137254902" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="SsH-FT-M5K"/>
+                                                                <constraint firstItem="OzY-Lq-RAD" firstAttribute="centerY" secondItem="l1p-6G-qi6" secondAttribute="centerY" id="Tcl-tP-w6a"/>
+                                                                <constraint firstItem="OzY-Lq-RAD" firstAttribute="centerX" secondItem="l1p-6G-qi6" secondAttribute="centerX" id="fnc-U7-hgQ"/>
+                                                                <constraint firstAttribute="width" constant="120" id="rzq-rv-ORu"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Jmn-v3-DAX" secondAttribute="bottom" id="4Ce-E5-pre"/>
+                                                        <constraint firstItem="l1p-6G-qi6" firstAttribute="top" secondItem="tax-D8-OLL" secondAttribute="top" constant="20" id="6gu-Dd-Lo3"/>
+                                                        <constraint firstItem="l1p-6G-qi6" firstAttribute="leading" secondItem="tax-D8-OLL" secondAttribute="leading" constant="20" id="DPf-EH-WW0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2Hp-3k-wqz" secondAttribute="trailing" id="Riv-m0-jPz"/>
                                                         <constraint firstItem="Jmn-v3-DAX" firstAttribute="top" secondItem="tax-D8-OLL" secondAttribute="top" id="UGM-ai-Gul"/>
                                                         <constraint firstItem="Jmn-v3-DAX" firstAttribute="leading" secondItem="tax-D8-OLL" secondAttribute="leading" id="ceP-zV-W5y"/>
-                                                        <constraint firstAttribute="bottom" secondItem="OzY-Lq-RAD" secondAttribute="bottom" constant="21" id="oVe-lP-3c4"/>
+                                                        <constraint firstItem="2Hp-3k-wqz" firstAttribute="leading" secondItem="tax-D8-OLL" secondAttribute="leading" id="kav-za-ebl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2Hp-3k-wqz" secondAttribute="bottom" id="rzj-rx-daa"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jmn-v3-DAX" secondAttribute="trailing" id="uIs-NE-sVv"/>
                                                     </constraints>
                                                 </view>
@@ -201,10 +235,12 @@
                                             <constraint firstItem="tax-D8-OLL" firstAttribute="top" secondItem="Lbb-78-aeu" secondAttribute="top" id="kHG-Xz-X1P"/>
                                             <constraint firstAttribute="trailing" secondItem="tax-D8-OLL" secondAttribute="trailing" id="o7a-Qu-9lp"/>
                                         </constraints>
-                                        <size key="customSize" width="341" height="170"/>
+                                        <size key="customSize" width="341" height="190"/>
                                         <connections>
                                             <outlet property="backImage" destination="Jmn-v3-DAX" id="ten-d1-BVa"/>
                                             <outlet property="dateLabel" destination="OzY-Lq-RAD" id="cP7-Rq-heX"/>
+                                            <outlet property="descLabel" destination="yxk-5p-NRH" id="nws-1R-VCb"/>
+                                            <outlet property="frostedDateView" destination="l1p-6G-qi6" id="uxE-A7-caB"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

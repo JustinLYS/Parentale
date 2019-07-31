@@ -12,6 +12,8 @@ class ImageDeedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var frostedDateView: FrostedUIView!
+    @IBOutlet weak var descLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +31,8 @@ class ImageDeedCollectionViewCell: UICollectionViewCell {
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
         
         backImage.contentMode = .scaleAspectFill
+        
+        frostedDateView.layer.cornerRadius = 25
+        frostedDateView.clipsToBounds = true
     }
 }

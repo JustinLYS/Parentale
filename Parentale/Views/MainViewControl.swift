@@ -169,6 +169,7 @@ extension ViewController: UICollectionViewDataSource {
             
             cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
             cell.backImage.image = deedsCompiler.getDeed(index: index).getImage()
+            cell.descLabel.text = deedsCompiler.getDeed(index: index).getDesc()
             
             return cell
         } else {
@@ -251,7 +252,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let index = indexPath.row
         
         if deedsCompiler.getDeed(index: index).hasImage() {
-            return CGSize(width: 341, height: 170)
+            return CGSize(width: 341, height: 190)
         } else {
             return CGSize(width: 341, height: 110)
         }
