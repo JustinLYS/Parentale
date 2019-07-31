@@ -11,7 +11,7 @@ import UIKit
 var question = Question()
 var deedsCompiler = DeedsCompiler()
 
-class ViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController {
     
     var formattedDate = DateFormatter()
     var isDetailSegueAdd = false
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         deedsCompiler.addDeed(newDeed: testDeed5)
         let testDeed6 = Deed(date: Date(), desc: "TESTING a very very long long question that might break code", question: "CAN I WORK?")
         deedsCompiler.addDeed(newDeed: testDeed6)
-        let testDeed7 = Deed(date: Date(), desc: "TESTING a very very long long question that might break code", question: "CAN I WORK?")
+        let testDeed7 = Deed(date: Date(), desc: "TESTING a very very long long question that might break code", question: "CAN I WORK?", image: UIImage.init(named: "branch")!)
         deedsCompiler.addDeed(newDeed: testDeed7)
     }
     
@@ -161,15 +161,27 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "textDeedCell", for: indexPath)
-            as! TextDeedCollectionViewCell
-        
         let index = indexPath.row
         
-        cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
-        cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
+        if deedsCompiler.getDeed(index: index).hasImage() {
+            let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "imageDeedCell", for: indexPath)
+                as! ImageDeedCollectionViewCell
+            
+            cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
+            cell.backImage.image = deedsCompiler.getDeed(index: index).getImage()
+            
+            return cell
+        } else {
+            let cell = deedCollectionView.dequeueReusableCell(withReuseIdentifier: "textDeedCell", for: indexPath)
+                as! TextDeedCollectionViewCell
+            
+            cell.dateLabel.text = formattedDate.string(from: deedsCompiler.getDeed(index: index).getDate())
+            cell.descLabel.text = deedsCompiler.getDeed(index: index).desc
+            
+            return cell
+        }
         
-        return cell
+        
     }
 }
 
@@ -232,4 +244,18 @@ extension ViewController: UICollectionViewDelegate {
         }
     }
     
+}
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let index = indexPath.row
+        
+        if deedsCompiler.getDeed(index: index).hasImage() {
+            return CGSize(width: 341, height: 110)
+        } else {
+            return CGSize(width: 341, height: 110)
+        }
+        
+        
+    }
 }

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Parentale/TaskDetailViewController.swift"
-            timestampString = "585924093.734099"
+            timestampString = "586245637.954326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "placeHolderSetup(textView:isPlaceHolder:)"
             landmarkType = "7">
          </BreakpointContent>

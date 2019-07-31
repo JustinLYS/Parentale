@@ -332,7 +332,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bA-kk-kFH" customClass="FrostedUIView" customModule="Parentale" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="77" width="343" height="245"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-x5-6no">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-x5-6no">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="245"/>
                                                     </imageView>
                                                 </subviews>
@@ -436,6 +436,7 @@
                         <outlet property="dateLabel" destination="PVD-j0-iGd" id="7cP-aR-FWx"/>
                         <outlet property="descTextView" destination="xUp-jI-wwh" id="OqR-hr-KLJ"/>
                         <outlet property="imageBackView" destination="6bA-kk-kFH" id="kC4-jP-23F"/>
+                        <outlet property="photoImage" destination="L1T-x5-6no" id="fgr-4R-21c"/>
                         <outlet property="saveButton" destination="SNB-cr-MfT" id="qFx-Rd-T9c"/>
                         <outlet property="timeLabel" destination="zmp-Rp-cV5" id="bcn-za-4nd"/>
                         <outlet property="titleLabel" destination="cCR-VU-bki" id="zkZ-IS-ljH"/>

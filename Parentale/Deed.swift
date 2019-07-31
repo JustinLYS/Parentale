@@ -64,6 +64,13 @@ class Deed {
 //            return false
 //        }
 //    }
+    func hasImage() -> Bool {
+        if let _ = image {
+            return true
+        } else {
+            return false
+        }
+    }
     
     func getDesc() -> String {
         return desc
